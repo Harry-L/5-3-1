@@ -10,7 +10,7 @@ import UIKit
 
 class Plates: NSObject {
 
-    func doTheMath(weight weight: Int, bar: Int, collar: Int, five: Int, ten: Int, twentyFive: Int, thirtyFive: Int, fortyFive: Int) {
+    func doTheMath(weight weight: Int, bar: Int, collar: Int, five: Int, ten: Int, twentyFive: Int, thirtyFive: Int, fortyFive: Int) -> [Int] {
         
         var plates:[Int] = [fortyFive / 2, thirtyFive / 2, twentyFive / 2, ten / 2, five / 2]
         let plateValues = [45, 35, 25, 10, 5]
@@ -40,5 +40,7 @@ class Plates: NSObject {
         else {
             print(setup)
         }
+        
+        return setup
     }
 }
