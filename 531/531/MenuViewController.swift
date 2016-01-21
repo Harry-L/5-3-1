@@ -9,6 +9,8 @@
 import UIKit
 
 class MenuViewController: UITableViewController {
+    
+    var menuItems = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,8 @@ class MenuViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        menuItems.append("Settings")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,15 +38,14 @@ class MenuViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return menuItems.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "Settings"
-        // Configure the cell...
+        cell.textLabel!.text = menuItems[indexPath.row]
 
         return cell
     }

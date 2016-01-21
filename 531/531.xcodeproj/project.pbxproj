@@ -15,6 +15,7 @@
 		4AF7285E1C509468005CF4A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF7285C1C509468005CF4A3 /* LaunchScreen.storyboard */; };
 		4AF728661C509564005CF4A3 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728651C509564005CF4A3 /* ContainerViewController.swift */; };
 		4AF728681C50BBA4005CF4A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728671C50BBA4005CF4A3 /* MenuViewController.swift */; };
+		4AF7286C1C51538B005CF4A3 /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7286B1C51538B005CF4A3 /* Plate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4AF7285F1C509468005CF4A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AF728651C509564005CF4A3 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF728671C50BBA4005CF4A3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		4AF7286B1C51538B005CF4A3 /* Plate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4AF7285C1C509468005CF4A3 /* LaunchScreen.storyboard */,
 				4AF7285F1C509468005CF4A3 /* Info.plist */,
 				4AF728671C50BBA4005CF4A3 /* MenuViewController.swift */,
+				4AF7286B1C51538B005CF4A3 /* Plate.swift */,
 			);
 			path = 531;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				4AF728681C50BBA4005CF4A3 /* MenuViewController.swift in Sources */,
 				4AF728521C509468005CF4A3 /* AppDelegate.swift in Sources */,
 				4AF728661C509564005CF4A3 /* ContainerViewController.swift in Sources */,
+				4AF7286C1C51538B005CF4A3 /* Plate.swift in Sources */,
 				4AF728541C509468005CF4A3 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +303,7 @@
 				4AF728641C509468005CF4A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
