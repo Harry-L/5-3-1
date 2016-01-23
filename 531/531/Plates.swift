@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Plate {
+class Plates {
     
     func doTheMath(weight weight: Int, bar: Int, collar: Int, five: Int, ten: Int, twentyFive: Int, thirtyFive: Int, fortyFive: Int) -> [Int] {
         
@@ -33,6 +33,7 @@ class Plate {
                 setup[index]++
             }
         }
+        
         
         if (currentWeight > 5) {
             print("You don't have enough plates")
