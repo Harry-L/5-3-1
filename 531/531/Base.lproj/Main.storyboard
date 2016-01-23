@@ -131,7 +131,6 @@
         <!--Table View Controller-->
         <scene sceneID="hoT-Wa-uwM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JqB-0m-vKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="SXj-dm-6Bn" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="o5Z-kP-XHt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -173,6 +172,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JqB-0m-vKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-702" y="888"/>
         </scene>
@@ -294,8 +294,6 @@
         <!--Add Workout View Controller-->
         <scene sceneID="UES-Ly-kg1">
             <objects>
-                <exit id="CuR-Dl-njp" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6d7-VJ-KCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ROf-t6-fKt" customClass="AddWorkoutViewController" customModule="_31" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7KY-Wk-9sz"/>
@@ -334,6 +332,8 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <exit id="CuR-Dl-njp" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6d7-VJ-KCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2022" y="-1083"/>
         </scene>

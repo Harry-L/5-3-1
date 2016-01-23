@@ -35,12 +35,8 @@ class Plates {
         }
         
         
-        if (currentWeight > 5) {
-            print("You don't have enough plates")
-            print(setup)
-        }
-        else {
-            print(setup)
+        if (currentWeight > 10) {
+            print("You don't have enough plates: Under by \(currentWeight)")
         }
         
         return setup

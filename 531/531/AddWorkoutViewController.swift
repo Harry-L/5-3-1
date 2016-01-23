@@ -54,9 +54,6 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 256, height: 256), false, 0)
-        let context = UIGraphicsGetCurrentContext()
-        
         var counter = 0
         var values = [45, 35, 25, 10, 5]
         
@@ -64,9 +61,25 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         let p = Plates()
         let plates = p.doTheMath(weight: currentWeight, bar: 45, collar: 0, five: 10, ten: 10, twentyFive: 10, thirtyFive: 10, fortyFive: 10)
         
+        var w = 0
+        var h = 0
+        
+        for (index, weight) in plates.enumerate() {
+            if weight > 0 && values[index] > h {
+                h = values[index]
+            }
+            w += weight
+        }
+        w *= 30
+        h = Int(sqrt(Double(h)/2.0/M_PI)*100)
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: w , height: h), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
         for (index,weight) in plates.enumerate() {
             for _ in 0 ..< weight {
-                let rect = CGRect(x: 15 + counter * 25, y: 60 + 5*(45-values[index])/2, width: 25, height: 5*values[index])
+                let height = Int(sqrt(Double(values[index])/2.0/M_PI)*100)
+                let rect = CGRect(x: counter * 30, y: (134-height/2)-1, width: 29, height: height-2)
                 CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
                 CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
                 CGContextSetLineWidth(context, 1)
@@ -81,12 +94,11 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 260, height: 300))
-        imageView.backgroundColor = UIColor.blackColor()
+        let imageView = UIImageView.init(frame: CGRect(x: (275-img.size.width)/2, y: 50, width: img.size.width, height: img.size.height))
         
         imageView.image = img
         
-        let ac = UIAlertController(title: "\(currentWeight)", message: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .Alert)
+        let ac = UIAlertController(title: "\(currentWeight)", message: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
         
         ac.view.addSubview(imageView)
