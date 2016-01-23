@@ -52,6 +52,46 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 256, height: 256), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        var counter = 0
+        var values = [45, 35, 25, 10, 5]
+        
+        let currentWeight = exercises[indexPath.row].sets["weight"]!
+        let p = Plates()
+        let plates = p.doTheMath(weight: currentWeight, bar: 45, collar: 0, five: 10, ten: 10, twentyFive: 10, thirtyFive: 10, fortyFive: 10)
+        
+        for (index,weight) in plates.enumerate() {
+            for _ in 0 ..< weight {
+                let rect = CGRect(x: 15 + counter * 25, y: 60 + 5*(45-values[index])/2, width: 25, height: 5*values[index])
+                CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
+                CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+                CGContextSetLineWidth(context, 1)
+                
+                CGContextAddRect(context, rect)
+                CGContextDrawPath(context, .FillStroke)
+                
+                counter++
+            }
+        }
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageView = UIImageView.init(frame: CGRect(x: 0, y: 0, width: 260, height: 300))
+        imageView.backgroundColor = UIColor.blackColor()
+        
+        imageView.image = img
+        
+        let ac = UIAlertController(title: "\(currentWeight)", message: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: nil))
+        
+        ac.view.addSubview(imageView)
+        presentViewController(ac, animated: true, completion: nil)
+    }
 
     
     // MARK: - Navigation
@@ -63,7 +103,6 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         if (segue.identifier == "save"){
             let vc = segue.destinationViewController as! FirstViewController
             vc.addWorkout(Workout.init(exercises: exercises, week: week))
-            print("Working")
         }
     }
     

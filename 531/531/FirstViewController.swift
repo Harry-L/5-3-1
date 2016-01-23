@@ -16,7 +16,10 @@ class FirstViewController: UITableViewController {
     var names = ["Overhead Press", "Squat", "Bench Press", "Deadlift"]
     
     @IBAction func unwindToFirstViewController(segue: UIStoryboardSegue) {
-        nextWorkout = [nextWorkout[0] + nextWorkout[1] / names.count, (nextWorkout[1] % names.count) + 1]
+        nextWorkout = [(nextWorkout[0] + nextWorkout[1] / names.count) % 4, (nextWorkout[1] % names.count) + 1]
+        if nextWorkout[0] == 0 {
+            nextWorkout[0] = 4
+        }
         print(nextWorkout)
     }
 
@@ -50,7 +53,7 @@ class FirstViewController: UITableViewController {
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
-
+        tableView.backgroundColor = UIColor.lightGrayColor()
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,6 +90,22 @@ class FirstViewController: UITableViewController {
         cell.nameLabel.text! = "\(name): Week \(week)"
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        cell.backgroundColor = UIColor.lightGrayColor()
+        
+        let subview : UIView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 90))
+        
+        subview.backgroundColor = UIColor.whiteColor()
+        
+        cell.contentView.addSubview(subview)
+        cell.contentView.sendSubviewToBack(subview)
     }
     
     func addWorkout(workout: Workout) {
@@ -141,9 +160,6 @@ class FirstViewController: UITableViewController {
         navigationItem.backBarButtonItem = back
         
         if (segue.identifier == "Add") {
-            
-            print("FINALL")
-            
             let vc = segue.destinationViewController as! AddWorkoutViewController
             vc.week = nextWorkout[0]
             let day = nextWorkout[1]
