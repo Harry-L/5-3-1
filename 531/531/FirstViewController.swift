@@ -11,6 +11,15 @@ import UIKit
 class FirstViewController: UITableViewController {
     
     var workouts = [Workout]()
+    var schedule = [[[Int]]]()
+    var nextWorkout = [Int]()
+    var names = ["Overhead Press", "Squat", "Bench Press", "Deadlift"]
+    
+    @IBAction func unwindToFirstViewController(segue: UIStoryboardSegue) {
+        nextWorkout = [nextWorkout[0] + nextWorkout[1] / names.count, (nextWorkout[1] % names.count) + 1]
+        print(nextWorkout)
+    }
+
     
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
@@ -28,6 +37,10 @@ class FirstViewController: UITableViewController {
         //Pulls workouts for NSUserDefaults
         let defaults = NSUserDefaults.standardUserDefaults()
         workouts = defaults.arrayForKey("history") as? [Workout] ?? [Workout]()
+        
+        nextWorkout = defaults.arrayForKey("nextWorkout") as? [Int] ?? [1, 1]
+        
+        schedule = [[[65, 5], [75, 5], [85, 5]], [[70, 3], [80, 3], [90, 3]], [[75, 5], [85, 3], [95, 1]], [[40, 5], [50, 5], [60, 5]]]
         
         //Sets title
         title = "5/3/1"
@@ -63,20 +76,21 @@ class FirstViewController: UITableViewController {
         
         let date = workouts[indexPath.row].date
         let name = workouts[indexPath.row].exercises[0].movement
+        let week = workouts[indexPath.row].week
         
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.LongStyle
         
         let dateString = formatter.stringFromDate(date)
 
-        cell.nameLabel.text! = dateString
-        cell.dateLabel.text! = name
+        cell.dateLabel.text! = dateString
+        cell.nameLabel.text! = "\(name): Week \(week)"
         
         return cell
     }
     
     func addWorkout(workout: Workout) {
-        workouts.append(workout)
+        workouts.insert(workout, atIndex: 0)
         tableView.reloadData()
     }
     
@@ -125,6 +139,20 @@ class FirstViewController: UITableViewController {
         let back = UIBarButtonItem()
         back.title = "Cancel"
         navigationItem.backBarButtonItem = back
+        
+        if (segue.identifier == "Add") {
+            
+            print("FINALL")
+            
+            let vc = segue.destinationViewController as! AddWorkoutViewController
+            vc.week = nextWorkout[0]
+            let day = nextWorkout[1]
+            vc.movement = names[day-1]
+            for array in schedule[nextWorkout[0]-1] {
+                let current = exercise.init(movement: vc.movement, weight: 315 * array[0] / 100, reps: array[1])
+                vc.exercises.append(current)
+            }
+        }
     }
     
     

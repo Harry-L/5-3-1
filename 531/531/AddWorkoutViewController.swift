@@ -11,17 +11,15 @@ import UIKit
 class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var exercises = [exercise]()
+    var week: Int = 0
+    var movement: String = ""
     
-    @IBAction func unwindToWorkouts(segue: UIStoryboardSegue) {
-        let vc = segue.destinationViewController as! FirstViewController
-        vc.addWorkout(Workout.init(exercises: exercises))
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        exercises.append(exercise.init(movement: "Squat", weight: 315, reps: 5))
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,14 +53,19 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "save"){
+            let vc = segue.destinationViewController as! FirstViewController
+            vc.addWorkout(Workout.init(exercises: exercises, week: week))
+            print("Working")
+        }
     }
-    */
+    
 
 }

@@ -19,6 +19,7 @@
 		4AF728701C519A01005CF4A3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF7286F1C519A01005CF4A3 /* FirstViewController.swift */; };
 		4AF728721C51A832005CF4A3 /* HistoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728711C51A832005CF4A3 /* HistoryViewCell.swift */; };
 		4AF728741C533BE3005CF4A3 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728731C533BE3005CF4A3 /* AddWorkoutViewController.swift */; };
+		4AF728761C5352B1005CF4A3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728751C5352B1005CF4A3 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4AF7286F1C519A01005CF4A3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		4AF728711C51A832005CF4A3 /* HistoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewCell.swift; sourceTree = "<group>"; };
 		4AF728731C533BE3005CF4A3 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
+		4AF728751C5352B1005CF4A3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				4AF7286D1C516E51005CF4A3 /* Workout.swift */,
 				4AF728711C51A832005CF4A3 /* HistoryViewCell.swift */,
 				4AF728731C533BE3005CF4A3 /* AddWorkoutViewController.swift */,
+				4AF728751C5352B1005CF4A3 /* Settings.swift */,
 			);
 			path = 531;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				4AF728681C50BBA4005CF4A3 /* MenuViewController.swift in Sources */,
 				4AF7286E1C516E51005CF4A3 /* Workout.swift in Sources */,
 				4AF728741C533BE3005CF4A3 /* AddWorkoutViewController.swift in Sources */,
+				4AF728761C5352B1005CF4A3 /* Settings.swift in Sources */,
 				4AF728521C509468005CF4A3 /* AppDelegate.swift in Sources */,
 				4AF728661C509564005CF4A3 /* ContainerViewController.swift in Sources */,
 				4AF728721C51A832005CF4A3 /* HistoryViewCell.swift in Sources */,
