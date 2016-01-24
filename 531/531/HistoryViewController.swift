@@ -1,15 +1,16 @@
 //
-//  FirstViewController.swift
+//  HistoryViewController.swift
 //  531
 //
-//  Created by Harry Liu on 2016-01-20.
+//  Created by Harry Liu on 2016-01-24.
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class HistoryViewController: UICollectionViewController {
 
+    
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
     }
@@ -18,12 +19,12 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-
+    
 }
-

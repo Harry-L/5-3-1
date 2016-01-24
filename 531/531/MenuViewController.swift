@@ -18,6 +18,9 @@ class MenuViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Adds top margin 
+        self.tableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +29,7 @@ class MenuViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -39,13 +42,13 @@ class MenuViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "Settings"
+        
         // Configure the cell...
 
         return cell
-    }
+    }   */
 
 
     /*
