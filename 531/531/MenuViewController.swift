@@ -20,8 +20,6 @@ class MenuViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        menuItems.append("")
-        menuItems.append("Settings")
         self.tableView.backgroundColor = UIColor.init(red: 204.0/255.0, green: 51.0/255.0, blue: 63.0/255.0, alpha: 1)
     }
 

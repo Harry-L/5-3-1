@@ -13,13 +13,12 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
     var exercises = [exercise]()
     var week: Int = 0
     var movement: String = ""
+    var maximums = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,13 +72,13 @@ class AddWorkoutViewController: UIViewController, UITableViewDelegate, UITableVi
         w *= 30
         h = Int(sqrt(Double(h)/2.0/M_PI)*100)
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: w , height: h), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: w + 10, height: h + 10), false, 0)
         let context = UIGraphicsGetCurrentContext()
         
         for (index,weight) in plates.enumerate() {
             for _ in 0 ..< weight {
                 let height = Int(sqrt(Double(values[index])/2.0/M_PI)*100)
-                let rect = CGRect(x: counter * 30, y: (134-height/2)-1, width: 29, height: height-2)
+                let rect = CGRect(x: counter * 30 + 3, y: (140-height/2)-1, width: 30, height: height-2)
                 CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
                 CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
                 CGContextSetLineWidth(context, 1)

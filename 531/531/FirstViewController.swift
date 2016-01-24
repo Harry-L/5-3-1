@@ -14,6 +14,7 @@ class FirstViewController: UITableViewController {
     var schedule = [[[Int]]]()
     var nextWorkout = [Int]()
     var names = ["Overhead Press", "Squat", "Bench Press", "Deadlift"]
+    var maximums = [Int]()
     
     @IBAction func unwindToFirstViewController(segue: UIStoryboardSegue) {
         nextWorkout = [(nextWorkout[0] + nextWorkout[1] / names.count) % 4, (nextWorkout[1] % names.count) + 1]
@@ -21,6 +22,18 @@ class FirstViewController: UITableViewController {
             nextWorkout[0] = 4
         }
         print(nextWorkout)
+    }
+    
+    @IBAction func unwindFromSettings(segue: UIStoryboardSegue) {
+        let three = parentViewController
+        let two = three?.parentViewController
+        let one = two?.parentViewController
+        if let pvc = one as? ContainerViewController{
+            pvc.closeMenu()
+        }
+        
+        let vc = segue.sourceViewController as! Settings
+        maximums = vc.maximums
     }
 
     
@@ -37,9 +50,14 @@ class FirstViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        //basic settings
+        tableView.allowsSelection = false
+        
         //Pulls workouts for NSUserDefaults
         let defaults = NSUserDefaults.standardUserDefaults()
         workouts = defaults.arrayForKey("history") as? [Workout] ?? [Workout]()
+        
+        maximums = defaults.arrayForKey("maximums") as? [Int] ?? [0, 0, 0, 0]
         
         nextWorkout = defaults.arrayForKey("nextWorkout") as? [Int] ?? [1, 1]
         
@@ -159,13 +177,15 @@ class FirstViewController: UITableViewController {
         back.title = "Cancel"
         navigationItem.backBarButtonItem = back
         
+        print(maximums)
+        
         if (segue.identifier == "Add") {
             let vc = segue.destinationViewController as! AddWorkoutViewController
             vc.week = nextWorkout[0]
             let day = nextWorkout[1]
             vc.movement = names[day-1]
             for array in schedule[nextWorkout[0]-1] {
-                let current = exercise.init(movement: vc.movement, weight: 315 * array[0] / 100, reps: array[1])
+                let current = exercise.init(movement: vc.movement, weight: maximums[day-1] * array[0] / 100, reps: array[1])
                 vc.exercises.append(current)
             }
         }
