@@ -63,6 +63,26 @@ class HistoryViewController: UICollectionViewController {
         collectionView!.backgroundColor = UIColor.lightGrayColor()
     }
     
+    
+    //MARK - Collection View Data Source
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("history", forIndexPath: indexPath)
+        
+        cell.backgroundColor = UIColor.darkGrayColor()
+    
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+            return CGSizeMake(collectionView.bounds.size.width - 20, 80)
+    }
 
     
 }

@@ -51,6 +51,20 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    @IBAction func pressChanging(sender: AnyObject) {
+        pressLabel.text! = ""
+    }
+    @IBAction func squatChanging(sender: AnyObject) {
+        squatLabel.text! = ""
+    }
+    @IBAction func benchChanging(sender: AnyObject) {
+        benchLabel.text! = ""
+    }
+    @IBAction func deadChanging(sender: AnyObject) {
+        deadLabel.text! = ""
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
