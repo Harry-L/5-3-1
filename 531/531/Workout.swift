@@ -13,11 +13,13 @@ class Workout {
     var exercises: [exercise]
     var date: NSDate
     var week: Int
+    var max: Int
     
-    init(exercises: [exercise], week: Int, date: NSDate) {
+    init(exercises: [exercise], week: Int, date: NSDate, max: Int) {
         self.exercises = exercises
         self.date = date
         self.week = week
+        self.max = max
     }
 }
 

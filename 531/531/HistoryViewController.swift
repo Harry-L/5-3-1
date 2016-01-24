@@ -60,7 +60,7 @@ class HistoryViewController: UICollectionViewController {
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        collectionView!.backgroundColor = UIColor.lightGrayColor()
+        collectionView!.backgroundColor = UIColor.init(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
     }
     
     
@@ -71,9 +71,12 @@ class HistoryViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("history", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("history", forIndexPath: indexPath) as! HistoryCell
         
-        cell.backgroundColor = UIColor.darkGrayColor()
+        cell.dateLabel.text! = "Mon, May 5, 2015\nWeek 1"
+        cell.nameLabel.text! = "Squat: 225lbs"
+
+        cell.backgroundColor = UIColor.whiteColor()
     
         
         return cell

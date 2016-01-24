@@ -100,7 +100,7 @@ class SettingsViewController: UITableViewController {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         //table view gray
-        tableView!.backgroundColor = UIColor.lightGrayColor()
+        tableView!.backgroundColor = UIColor.init(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1)
         
         //status bar white
         navigationController!.navigationBar.barStyle = UIBarStyle.Black

@@ -10,5 +10,7 @@ import UIKit
 
 class HistoryCell: UICollectionViewCell {
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
 }

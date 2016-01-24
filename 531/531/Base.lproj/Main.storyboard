@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Second View Controller-->
+        <!--Calendar-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="_31" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="CalendarViewController" customModule="_31" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vCt-Cr-s2l">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="biP-GT-DBa">
+                    <navigationItem key="navigationItem" title="Calendar" id="vCt-Cr-s2l">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="biP-GT-DBa">
                             <connections>
                                 <action selector="toggleMenu:" destination="8rJ-Kc-sve" id="Aqu-vz-51w"/>
                             </connections>
@@ -28,7 +28,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3538" y="420"/>
+            <point key="canvasLocation" x="1282" y="839"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="znI-ZH-hkL">
@@ -352,12 +352,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVb-h1-fLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="y8r-UK-xM6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="839"/>
+            <point key="canvasLocation" x="259" y="1655"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabController" customModule="_31" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -367,6 +367,7 @@
                     <connections>
                         <segue destination="XCc-V2-39W" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Fqt-TO-KfF" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="FDV-6a-dO2" kind="relationship" relationship="viewControllers" id="x78-ix-9eP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -390,7 +391,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PkR-kW-Zun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-372"/>
+            <point key="canvasLocation" x="858" y="-672"/>
         </scene>
         <!--5/3/1-->
         <scene sceneID="jF6-QW-bp4">
@@ -406,14 +407,38 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="history" id="Ioc-Eo-345">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="history" id="Ioc-Eo-345" customClass="HistoryCell" customModule="_31" customModuleProvider="target">
                                 <rect key="frame" x="100" y="54" width="400" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, May 4, 2015" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hr-AJ-m4c">
+                                            <rect key="frame" x="15" y="25" width="136" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squat: 225lbs" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dU-jw-FGz">
+                                            <rect key="frame" x="254" y="22" width="131" height="26"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="9hr-AJ-m4c" firstAttribute="leading" secondItem="Ioc-Eo-345" secondAttribute="leading" constant="15" id="LLt-c5-P4T"/>
+                                    <constraint firstAttribute="trailing" secondItem="0dU-jw-FGz" secondAttribute="trailing" constant="15" id="NxW-6J-KIx"/>
+                                    <constraint firstItem="0dU-jw-FGz" firstAttribute="centerY" secondItem="Ioc-Eo-345" secondAttribute="centerY" id="VYt-5Y-ikx"/>
+                                    <constraint firstItem="9hr-AJ-m4c" firstAttribute="centerY" secondItem="Ioc-Eo-345" secondAttribute="centerY" id="yC4-JD-XOL"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="9hr-AJ-m4c" id="U1a-Ud-dbp"/>
+                                    <outlet property="nameLabel" destination="0dU-jw-FGz" id="1Wz-9U-3Vn"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -432,13 +457,38 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWi-aO-Po5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="-372"/>
+            <point key="canvasLocation" x="1638" y="-672"/>
         </scene>
-        <!--Second-->
+        <!--Graphs-->
+        <scene sceneID="0wj-4f-nhF">
+            <objects>
+                <viewController id="pjJ-rX-ehh" customClass="GraphsViewController" customModule="_31" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KbF-Em-1CC"/>
+                        <viewControllerLayoutGuide type="bottom" id="CLl-cb-xaw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="608-Vb-INw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Graphs" id="16z-Xz-f8s">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="z47-Og-E1L">
+                            <connections>
+                                <action selector="toggleMenu:" destination="pjJ-rX-ehh" id="IUl-0b-rkc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmt-jV-FvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2094" y="69"/>
+        </scene>
+        <!--Calendar-->
         <scene sceneID="9lH-58-1DW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fqt-TO-KfF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Calendar" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B5W-dJ-kcK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -451,7 +501,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Sz-lk-Z7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="420"/>
+            <point key="canvasLocation" x="560" y="839"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mdo-Ei-NUw">
@@ -469,10 +519,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZD-vr-1fY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293" y="839"/>
+            <point key="canvasLocation" x="-500" y="1655"/>
+        </scene>
+        <!--Graph-->
+        <scene sceneID="0Em-Vf-20p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FDV-6a-dO2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Graph" image="Graph" id="LgZ-56-7bg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="05d-qE-ho6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pjJ-rX-ehh" kind="relationship" relationship="rootViewController" id="5Hv-Mr-Hh4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tc-kX-loU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="69"/>
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="Calendar" width="25" height="25"/>
+        <image name="Graph" width="25" height="25"/>
     </resources>
 </document>
