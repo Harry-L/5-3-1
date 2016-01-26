@@ -86,6 +86,27 @@ class HistoryViewController: UICollectionViewController {
         
             return CGSizeMake(collectionView.bounds.size.width - 20, 80)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "add"){
+            let vc = segue.destinationViewController as! AddViewController
+            let week = nextWorkout[0]
+            let day = nextWorkout[1]
+            let movement = names[day-1]
+            
+            //sets week and movement name
+            vc.week = week
+            vc.movement = movement
+            
+            let routine = exercise.init(movement: movement, sets: schedule[week-1])
+            
+            //adds default exercise to exercises
+            vc.exercises.append(routine)
+            
+            //adds maximums 
+            vc.maximums = maximums
+        }
+    }
 
     
 }

@@ -13,6 +13,8 @@
 		4A338E471C554A3A00F1636B /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A338E461C554A3A00F1636B /* HistoryCell.swift */; };
 		4AEC904A1C555EF9002845DF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC90491C555EF9002845DF /* TabController.swift */; };
 		4AEC904E1C556842002845DF /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC904D1C556842002845DF /* GraphsViewController.swift */; };
+		4AEC90501C55BD3D002845DF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC904F1C55BD3D002845DF /* AddViewController.swift */; };
+		4AEC90521C571536002845DF /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC90511C571536002845DF /* AddCell.swift */; };
 		4AF728521C509468005CF4A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728511C509468005CF4A3 /* AppDelegate.swift */; };
 		4AF728561C509468005CF4A3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF728551C509468005CF4A3 /* CalendarViewController.swift */; };
 		4AF728591C509468005CF4A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF728571C509468005CF4A3 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		4A338E461C554A3A00F1636B /* HistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		4AEC90491C555EF9002845DF /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		4AEC904D1C556842002845DF /* GraphsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
+		4AEC904F1C55BD3D002845DF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		4AEC90511C571536002845DF /* AddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
 		4AF7284E1C509468005CF4A3 /* 531.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 531.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF728511C509468005CF4A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF728551C509468005CF4A3 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				4A338E461C554A3A00F1636B /* HistoryCell.swift */,
 				4AEC90491C555EF9002845DF /* TabController.swift */,
 				4AEC904D1C556842002845DF /* GraphsViewController.swift */,
+				4AEC904F1C55BD3D002845DF /* AddViewController.swift */,
+				4AEC90511C571536002845DF /* AddCell.swift */,
 			);
 			path = 531;
 			sourceTree = "<group>";
@@ -163,11 +169,13 @@
 				4AF728561C509468005CF4A3 /* CalendarViewController.swift in Sources */,
 				4AF728681C50BBA4005CF4A3 /* MenuViewController.swift in Sources */,
 				4A338E451C54C28300F1636B /* SettingsViewController.swift in Sources */,
+				4AEC90501C55BD3D002845DF /* AddViewController.swift in Sources */,
 				4AF728521C509468005CF4A3 /* AppDelegate.swift in Sources */,
 				4A338E411C54B01A00F1636B /* HistoryViewController.swift in Sources */,
 				4AF728661C509564005CF4A3 /* ContainerViewController.swift in Sources */,
 				4A338E431C54B78100F1636B /* Workout.swift in Sources */,
 				4AEC904E1C556842002845DF /* GraphsViewController.swift in Sources */,
+				4AEC90521C571536002845DF /* AddCell.swift in Sources */,
 				4AEC904A1C555EF9002845DF /* TabController.swift in Sources */,
 				4A338E471C554A3A00F1636B /* HistoryCell.swift in Sources */,
 			);
