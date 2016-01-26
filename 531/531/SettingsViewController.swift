@@ -66,6 +66,7 @@ class SettingsViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        print("loaded")
         super.viewDidLoad()
         
         loadData()
@@ -86,11 +87,25 @@ class SettingsViewController: UITableViewController {
         
         maximums = defaults.arrayForKey("maximums") as? [Int] ?? [0, 0, 0, 0]
         nextWorkout = defaults.arrayForKey("nextWorkout") as? [Int] ?? [1, 1]
+        /*
+        if maximums.count < 4 {
+            defaults.setObject([0, 0, 0, 0], forKey: "maximums")
+            maximums = defaults.arrayForKey("maximums") as? [Int] ?? [0, 0, 0, 0]
+        }
+        if nextWorkout.count < 2 {
+            defaults.setObject([1, 1], forKey: "nextWorkout")
+            nextWorkout = defaults.arrayForKey("nextWorkout") as? [Int] ?? [1, 1]
+        }*/
+        
+        //print("loading maximums")
+        //print(maximums)
         
         pressLabel.text! = String(maximums[0])
         squatLabel.text! = String(maximums[1])
         benchLabel.text! = String(maximums[2])
         deadLabel.text! = String(maximums[3])
+        
+        //print("loaded maximums")
     }
     
     func colorSetup() {

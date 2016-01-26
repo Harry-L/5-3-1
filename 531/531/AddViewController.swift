@@ -24,10 +24,12 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     var exercises = [exercise]()
     var week: Int = 0
+    var day: Int = 0
     var movement: String = ""
     var maximums = [Int]()
     var setNumbers = [[Int]]()
     var setString = [String]()
+    var date = NSDate.init()
 
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -46,7 +48,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
             
         }
         else if !editingMode {
-            
+            performSegueWithIdentifier("save", sender: self)
         }
     }
     override func viewDidLoad() {
@@ -65,7 +67,11 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     func layoutSetup() {
         self.tabBarController?.tabBar.hidden = true
-        navigationController!.navigationBar.translucent = false;
+        
+        
+        //self.edgesForExtendedLayout = UIRectEdge.None
+        navigationController!.navigationBar.opaque = true
+        //navigationController!.navigationBar.barTintColor = UIColor.blackColor()
     }
     
     func colourSetup() {
@@ -84,6 +90,8 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
         setNumbers.append(exercises[0].sets[1])
         setNumbers.append(exercises[0].sets[2])
         
+        //print("WORKING")
+
         setString.append(movement)
         setString.append(movement)
         setString.append(movement)
@@ -93,15 +101,27 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     // MARK - Data Source
     
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, referenceSizeForHeaderInSection section: Int) -> CGSize  {
+        
+        
+       
+        
+        // ... calculate the height
+        let height = navigationController!.navigationBar.frame.size.height + 20
+        let width = navigationController!.navigationBar.frame.size.width
+        
+        //print(navigationController!.navigationBar.frame.size)
+        
+        return CGSize.init(width: width, height: height)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return setNumbers.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("set", forIndexPath: indexPath) as! AddCell
         
-        print("Set numbers is \(setNumbers)")
-        print("Set string is \(setString)")
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("set", forIndexPath: indexPath) as! AddCell
         
         cell.label.text! = "\(setString[indexPath.row]):"
         cell.rightLabel.text! = "\(setNumbers[indexPath.row][0])lbs for \(setNumbers[indexPath.row][1]) reps"
@@ -120,14 +140,23 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        /*
+        if (segue.identifier == "save") {
+            print(segue.destinationViewController)
+            let vc = segue.destinationViewController as! HistoryViewController
+            //print("WORKING")
+            let workout = Workout.init(exercises: exercises, week: week, date: date, max: maximums[day-1], movement: movement)
+            
+            vc.history.insert(workout, atIndex: 0)
+            
+            vc.collectionView!.reloadData()
+        }*/
     }
-    */
+    
 
 }
