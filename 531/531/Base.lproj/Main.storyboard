@@ -593,7 +593,19 @@
                     <view key="view" contentMode="scaleToFill" id="608-Vb-INw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tuc-D6-Zt4" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tuc-D6-Zt4" firstAttribute="top" secondItem="608-Vb-INw" secondAttribute="top" constant="44" id="Chh-c8-9gg"/>
+                            <constraint firstAttribute="bottom" secondItem="Tuc-D6-Zt4" secondAttribute="bottom" constant="49" id="Whq-hP-SEI"/>
+                            <constraint firstItem="Tuc-D6-Zt4" firstAttribute="leading" secondItem="608-Vb-INw" secondAttribute="leading" id="h0O-zf-43r"/>
+                            <constraint firstAttribute="trailing" secondItem="Tuc-D6-Zt4" secondAttribute="trailing" id="zax-8R-2X4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Graphs" id="16z-Xz-f8s">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="z47-Og-E1L">
@@ -602,6 +614,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lineChartView" destination="Tuc-D6-Zt4" id="LVt-ay-eg3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmt-jV-FvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
