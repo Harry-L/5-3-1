@@ -66,7 +66,6 @@ class SettingsViewController: UITableViewController {
     
     
     override func viewDidLoad() {
-        print("loaded")
         super.viewDidLoad()
         
         loadData()
