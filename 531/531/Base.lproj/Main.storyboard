@@ -572,6 +572,7 @@
                     <connections>
                         <outlet property="collectionView" destination="sew-ah-KxY" id="yKF-pC-6vF"/>
                         <outlet property="leftButton" destination="YhD-h0-ebB" id="jr3-dg-TLG"/>
+                        <outlet property="navigation" destination="nde-hr-YK6" id="TFR-2L-hnv"/>
                         <outlet property="rightButton" destination="vvy-JP-gBN" id="pZZ-e7-bNg"/>
                         <segue destination="Edl-e9-c8X" kind="unwind" identifier="save" unwindAction="unwindFromAdd:" id="E5f-XJ-jDU"/>
                     </connections>

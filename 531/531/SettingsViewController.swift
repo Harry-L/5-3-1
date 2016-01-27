@@ -67,7 +67,7 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loadData()
         colorSetup()
         loadKeyboard()
@@ -132,6 +132,8 @@ class SettingsViewController: UITableViewController {
     //MARK NAVIGATION
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        dismissKeyboard()
+        
         pressChanged(self)
         squatChanged(self)
         benchChanged(self)

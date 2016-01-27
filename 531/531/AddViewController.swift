@@ -34,6 +34,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var navigation: UINavigationItem!
     
     @IBAction func leftButtonPressed(sender: AnyObject) {
         if editingMode {
@@ -58,6 +59,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
         colourSetup()
         
         variablesSetup()
+        dateSetup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,12 +68,8 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     func layoutSetup() {
+        //hide tab bar
         self.tabBarController?.tabBar.hidden = true
-        
-        
-        //self.edgesForExtendedLayout = UIRectEdge.None
-        navigationController!.navigationBar.opaque = true
-        //navigationController!.navigationBar.barTintColor = UIColor.blackColor()
     }
     
     func colourSetup() {
@@ -98,6 +96,15 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         editingMode = false
     }
+    
+    func dateSetup() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.FullStyle
+        let dateString = dateFormatter.stringFromDate(date)
+        
+        navigation.title! = dateString
+    }
+    
     
     // MARK - Data Source
     

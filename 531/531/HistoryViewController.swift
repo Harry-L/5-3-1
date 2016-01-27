@@ -48,8 +48,6 @@ class HistoryViewController: UICollectionViewController {
         
         history.insert(workout, atIndex: 0)
         
-        self.tabBarController?.tabBar.hidden = false
-        
         addDay()
         
         collectionView?.reloadData()
@@ -64,8 +62,13 @@ class HistoryViewController: UICollectionViewController {
         
         initVariables()
         colorSetup()
+        layoutSetup()
+    }
+    
+    override func viewWillAppear(animated: Bool = true) {
+        super.viewWillAppear(animated)
         
-        
+        layoutSetup()
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,6 +107,10 @@ class HistoryViewController: UICollectionViewController {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         collectionView!.backgroundColor = UIColor.init(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+    }
+    
+    func layoutSetup() {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func addDay() {
