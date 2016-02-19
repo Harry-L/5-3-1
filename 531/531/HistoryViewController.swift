@@ -12,19 +12,19 @@ class HistoryViewController: UICollectionViewController {
     
     var history = [Workout]() {
         didSet {
-            //defaults.setObject(history, forKey: "history")
+            defaults.setObject(history, forKey: "history")
         }
     }
     var schedule = [[[Int]]]()
     var nextWorkout = [Int]() { //[Week, day]
         didSet {
-            //defaults.setObject(nextWorkout, forKey: "nextWorkout")
+            defaults.setObject(nextWorkout, forKey: "nextWorkout")
         }
     }
     var names = ["Overhead Press", "Squat", "Bench Press", "Deadlift"]
     var maximums = [Int]() { //[Press max, Squat max, Bench max, Dead max]
         didSet {
-            //defaults.setObject(history, forKey: "maximums")
+            defaults.setObject(maximums, forKey: "maximums")
         }
     }
     

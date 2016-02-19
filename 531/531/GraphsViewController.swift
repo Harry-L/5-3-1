@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Charts
+//import Charts
 
-class GraphsViewController: UIViewController, ChartViewDelegate {
+class GraphsViewController: UIViewController {
     
-    @IBOutlet weak var lineChartView: LineChartView!
+    //@IBOutlet weak var lineChartView: LineChartView!
     
     var history =  [Workout]()
     var press = [Int]()
@@ -19,7 +19,7 @@ class GraphsViewController: UIViewController, ChartViewDelegate {
     var bench = [Int]()
     var dead = [Int]()
     var dates = [NSDate]()
-    var dataSets = [LineChartDataSet]()
+    //var dataSets = [LineChartDataSet]()
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -31,16 +31,16 @@ class GraphsViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
 
         colorSetup()
-        chartSetup()
-        initVariables()
-        setupChart()
+        //chartSetup()
+        //initVariables()
+        //setupChart()
     }
     
     override func viewWillAppear(animated: Bool = true) {
         super.viewWillAppear(animated)
         
-        initVariables()
-        setupChart()
+        //initVariables()
+        //setupChart()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +53,7 @@ class GraphsViewController: UIViewController, ChartViewDelegate {
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
-    
+    /*
     func chartSetup() {
         super.viewDidLoad()
 
@@ -140,7 +140,7 @@ class GraphsViewController: UIViewController, ChartViewDelegate {
         //5 - finally set our data
         self.lineChartView.data = data            
     }
-    
+    */
 
     /*
     // MARK: - Navigation

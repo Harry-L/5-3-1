@@ -139,6 +139,8 @@ class SettingsViewController: UITableViewController {
         benchChanged(self)
         deadChanged(self)
         
+        
+        
         let vc = segue.destinationViewController as! HistoryViewController
         vc.maximums = maximums
     }
